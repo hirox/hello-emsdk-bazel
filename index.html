@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<body>
+    <script>
+        var Module = {
+            onRuntimeInitialized: async function () {
+                const bind = new Module.TargetBinding();
+                console.log(bind.Foo(true));
+                console.log(bind.Foo(false));
+
+                const list = new Module.StringList();
+                list.push_back("a");
+                list.push_back("b");
+                list.push_back("c");
+                console.log(bind.Bar(list));
+
+                console.log(await bind.Baz());
+            }
+        };
+    </script>
+    <script src="hello.js"></script>
+</body>
+
+</html>
